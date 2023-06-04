@@ -10,3 +10,4 @@ def bot_help(message: Message):
     bot.reply_to(message, "\n".join(text))
 
 #some text for commit
+#some words
