@@ -8,3 +8,5 @@ from loader import bot
 def bot_help(message: Message):
     text = [f"/{command} - {desk}" for command, desk in DEFAULT_COMMANDS]
     bot.reply_to(message, "\n".join(text))
+
+#some text for commit
