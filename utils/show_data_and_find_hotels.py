@@ -138,9 +138,9 @@ def print_data(message: Message, data: Dict) -> None:
     """
     Выводим в чат всё, что собрали от пользователя и передаем это в функцию поиска
     отелей.
-    : param message : Message
-    : param data: Dict данные, собранные от пользавателя
-    : return : None
+    :param message : Message
+    :param data: Dict данные, собранные от пользователя
+    :return : None
     """
     # Отправляем в базу данных собранные данные, а там уже выберу что нужно
     database.to_database.add_query(data)

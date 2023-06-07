@@ -6,8 +6,8 @@ def get_city(response_text: str) -> Dict:
     """
     Принимает ответ от сервера с возможными вариантами городов. Возвращает словарь
     с названиями городов и их идентификатором.
-    : param response_text : str текстовая строка, ответ от сервера
-    : return possible_cities : Dict Возвращает словарь с вариантами городов
+    :param response_text : str текстовая строка, ответ от сервера.
+    :return possible_cities : Dict Возвращает словарь с вариантами городов
     """
     possible_cities = {}
     data = json.loads(response_text)
@@ -30,15 +30,17 @@ def get_hotels(
         landmark_in: str,
         landmark_out: str
 ) -> Dict:
+
     """
     Принимает ответ от сервера, выбранную команду сортировки, а так же пределы диапазона
     расстояния от центра города. Возвращает отсортированный словарь, в зависимости от команды сортировки.
-    : param response_text : str Ответ от сервера, в котором содержится информация об отелях
-    : param command : str Команда сортировки
-    : param landmark_in : str Начало диапазона растояния до центра
-    : param landmark_out : str Конец диапазона растояния до центра
-    : return hotels_data : Dict Возвращает словарь с данными об отелях
+    :param response_text : str Ответ от сервера, в котором содержится информация об отелях
+    :param command : str Команда сортировки
+    :param landmark_in : str Начало диапазона расстояния до центра
+    :param landmark_out : str Конец диапазона расстояния до центра
+    :return hotels_data : Dict Возвращает словарь с данными об отелях
     """
+
     data = json.loads(response_text)
     if not data:
         raise LookupError('Запрос пуст...')
@@ -82,8 +84,8 @@ def get_hotels(
 def hotel_info(hotels_request: str) -> Dict:
     """
     Принимает ответ от сервера с детальной информацией об отеле, и возвращает словарь с данными отеля.
-    : param hotels_request : str Текстовый ответ от сервера о детальной информации об отеле.
-    : return hotel_data: Dict Возвращает словарь с дополнительной информацией об отеле
+    :param hotels_request : str Текстовый ответ от сервера о детальной информации об отеле.
+    :return hotel_data: Dict Возвращает словарь с дополнительной информацией об отеле
     """
     data = json.loads(hotels_request)
     if not data:

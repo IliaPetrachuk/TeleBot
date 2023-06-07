@@ -166,7 +166,7 @@ def input_landmark_out(message: Message) -> None:
 
 def check_command(command: str) -> str:
     """
-    Проверка команды и назначение параметра сортировки
+    Проверка команды и назначение параметра сортировки.
     : param command : str команда, выбранная (введенная) пользователем
     : return : str команда сортировки
     """
