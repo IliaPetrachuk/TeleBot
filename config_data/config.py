@@ -8,11 +8,12 @@ else:
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 RAPID_API_KEY = os.getenv("RAPID_API_KEY")
+DB_NAME = os.getenv('DB_NAME')
 DEFAULT_COMMANDS = (
     ("start", "Запустить бота"),
     ("help", "Вывести справку"),
     ('lowprice', "Топ самых дешёвых отелей в городе"),
     ('highprice', "Топ самых дорогих отелей в городе"),
-    ('bestdeal', "Найти лучшее соответствие цены отелей относительно запрошенной цены"),
+    ('bestdeal', "Топ отелей, подходящих по цене и расположению от центра города"),
     ('history', "Посмотреть историю поиска отелей"),
 )
