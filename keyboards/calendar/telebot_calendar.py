@@ -350,8 +350,8 @@ class CallbackData:
 def check_month_day(number: str) -> str:
     """
     Преобразование формата числа месяца или дня из формата 1..9 в формат 01..09
-    : param number : str, число месяца или дня
-    : return number : str
+    :param number : str, число месяца или дня
+    :return number : str
     """
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     if int(number) in numbers:

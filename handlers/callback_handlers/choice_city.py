@@ -9,8 +9,8 @@ def destination_id_callback(call: CallbackQuery) -> None:
     """
     Пользователь нажал кнопку города, который ему нужен. Записываем id
     этого города и переходим к следующему шагу. Запрашиваем количество отелей для вывода в чат.
-    : param call: получает id города
-    : return : None
+    :param call: получает id города.
+    :return: None
     """
     logger.info(f'Пользователь выбрал город. User_id: {call.message.chat.id}')
     if call.data:

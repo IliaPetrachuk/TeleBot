@@ -1,4 +1,4 @@
-import database.to_database
+import database.add_to_database
 from loader import bot
 from telebot.types import Message, Dict, InputMediaPhoto
 from loguru import logger
@@ -11,9 +11,9 @@ def find_and_show_hotels(message: Message, data: Dict) -> None:
     """
     Формирование запросов на поиск отелей, и детальной информации о них (адрес, фотографии).
     Вывод полученных данных пользователю в чат.
-    : param message : Message
-    : param data : Dict данные, собранные от пользователя.
-    : return : None
+    :param message: Message
+    :param data: Dict данные, собранные от пользователя.
+    :return: None
     """
     payload = {
         "currency": "USD",
@@ -84,7 +84,7 @@ def find_and_show_hotels(message: Message, data: Dict) -> None:
 
                     caption = f'Название: {hotel["name"]}\n ' \
                               f'Адрес: {summary_info["address"]}\n' \
-                              f'Стоимость проживания в сутки: {hotel["price"]}\n ' \
+                              f'Стоимость проживания в сутки: {round(hotel["price"])} $\n ' \
                               f'Расстояние до центра: {round(hotel["distance"], 2)} mile.\n'
 
                     medias = []
@@ -106,7 +106,7 @@ def find_and_show_hotels(message: Message, data: Dict) -> None:
                             'date_time': data['date_time'], 'images': links_to_images
                         }
                     }
-                    database.to_database.add_response(data_to_db)
+                    database.add_to_database.add_response(data_to_db)
                     # Если количество фотографий > 0: создаем медиа группу с фотками и выводим ее в чат
                     if int(data['photo_count']) > 0:
                         # формируем MediaGroup с фотографиями и описанием отеля и посылаем в чат
@@ -138,12 +138,12 @@ def print_data(message: Message, data: Dict) -> None:
     """
     Выводим в чат всё, что собрали от пользователя и передаем это в функцию поиска
     отелей.
-    :param message : Message
-    :param data: Dict данные, собранные от пользователя
-    :return : None
+    :param message: Message
+    :param data: Dict данные собранные от пользователя.
+    :return: None
     """
     # Отправляем в базу данных собранные данные, а там уже выберу что нужно
-    database.to_database.add_query(data)
+    database.add_to_database.add_query(data)
 
     logger.info(f'Вывод суммарной информации о параметрах запроса пользователем. User_id: {message.chat.id}')
     text_message = ('Исходные данные:\n'

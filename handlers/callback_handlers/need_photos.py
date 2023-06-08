@@ -9,8 +9,8 @@ from handlers.custom_handlers.input_data import my_calendar
 def need_photo_callback(call: CallbackQuery) -> None:
     """
         Пользователь нажал кнопку "ДА" или "НЕТ"
-        : param call: "yes" or "no"
-        : return : None
+        :param call: "yes" or "no"
+        :return: None
         """
     if call.data == 'yes':
         logger.info(f'Нажата кнопка "ДА". User_id: {call.message.chat.id}')

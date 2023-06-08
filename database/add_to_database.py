@@ -7,12 +7,12 @@ from config_data import config
 
 def add_user(message: Message) -> None:
     """
-    Создает базу данных (если её нет), таблицу с данными пользователей:
+    Создает базу данных если её еще нет, таблицу с данными пользователей:
     id, username и, если есть, "имя фамилия" и добавляет туда данные, если
     бота запускает новый пользователь. Данная таблица не участвует в выдаче сохраненной
     информации. Она просто хранит данные пользователя.
-    : param message : Message
-    : return : None
+    :param message: Message
+    :return: None
     """
     connection = sqlite3.connect(config.DB_NAME)
     cursor = connection.cursor()
@@ -43,8 +43,8 @@ def add_query(query_data: dict) -> None:
     """
     Создаёт таблицу, если она ещё не создавалась и добавляет туда данные,
     которые ввел пользователь для поиска.
-    : param query_data : dict
-    : return : None
+    :param query_data: dict
+    :return: None
     """
     user_id = query_data['chat_id']
     connection = sqlite3.connect(config.DB_NAME)
@@ -92,8 +92,8 @@ def add_response(search_result: dict) -> None:
     """
     Создаёт таблицу, если она ещё не создавалась и добавляет туда данные,
     которые бот получил в результате запросов к серверу.
-    : param search_result : dict
-    : return : None
+    :param search_result: dict
+    :return: None
     """
     connection = sqlite3.connect(config.DB_NAME)
     cursor = connection.cursor()
@@ -133,4 +133,3 @@ def add_response(search_result: dict) -> None:
         logger.info(f'В БД добавлены ссылки на фотографии отеля. User_id: {item[1]["user_id"]}')
         connection.commit()
     connection.close()
-    

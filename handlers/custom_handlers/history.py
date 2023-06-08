@@ -11,11 +11,11 @@ def get_list_history(message: Message) -> None:
         Обработчик команд, срабатывает на команду /history
         Обращается к базе данных и выдает в чат запросы пользователя
         по отелям.
-        : param message : Message
-        : return : None
+        :param message: Message
+        :return: None
     """
     logger.info(f'Выбрана команда history! User_id: {message.chat.id}')
-    queries = database.from_database.read_query(message.chat.id)
+    queries = database.read_from_database.read_query(message.chat.id)
     if queries:
         logger.info(f'Получены записи из таблицы query:\n {queries}. User_id: {message.chat.id}')
         for item in queries:
@@ -32,11 +32,11 @@ def input_number(message: Message) -> None:
         Ввод пользователем номера запроса, которые есть в списке. Если пользователь введет
         неправильный номер или это будет "не цифры", то бот попросит повторить ввод.
         Запрос к базе данных нужных нам записей. Выдача в чат результата.
-        : param message : Message
-        : return : None
+        :param message: Message
+        :return: None
     """
     if message.text.isdigit():
-        queries = database.from_database.read_query(message.chat.id)
+        queries = database.read_from_database.read_query(message.chat.id)
         number_query = []
         photo_need = ''
         for item in queries:
@@ -49,7 +49,7 @@ def input_number(message: Message) -> None:
 
         if int(message.text) in number_query:
             logger.info(f"Посылаем запрос к базе данных. User_id: {message.chat.id}")
-            history_dict = database.from_database.get_history_response(message)
+            history_dict = database.read_from_database.get_history_response(message)
             with bot.retrieve_data(message.chat.id) as data:
                 data.clear()
             if history_dict:

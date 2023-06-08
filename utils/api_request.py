@@ -11,10 +11,10 @@ headers = {
 def request(method: str, url: str, query_string: dict) -> requests.Response:
     """
     Посылаем запрос к серверу
-    : param method : str
-    : param url : str
-    : param query_string : dict
-    : return : request.Response
+    :param method: str
+    :param url: str
+    :param query_string: dict
+    :return: request.Response
     """
 
     if method == "GET":
