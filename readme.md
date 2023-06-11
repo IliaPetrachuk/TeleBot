@@ -40,8 +40,8 @@ Telegram-bot Hotel finder
 Описание работы команд:
 
 Команда **/start** - После ввода команды выводится приветствие пользователю
-
-![start](C:\Users\dns\Telebot\screen\start.png)
+start = open('C:\Users\dns\Telebot\screen\start.png')
+![start.png](screen%2Fstart.png)
 
 Команда **/help** - После ввода команды выводится список всех команд, с кратким описанием того, что делает каждая команда
 
