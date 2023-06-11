@@ -19,12 +19,10 @@ Telegram-bot Hotel finder
 
 # Запуск проекта (на примере Manjaro Linux)
 - Клонировать проект командой: git clone https://gitlab.skillbox.ru/ilia_petrachuk/PA_Python_DPO_bot/
-- Создать файл .env вида:
-
-BOT_TOKEN= "ваш бот токен"
-RAPID_API_KEY= "ваш rapid_api key"
-DB_NAME= "database/history.sqlite3"
-
+- Создать файл .env и добавьте в него переменные окружения, следующего вида:
+    - BOT_TOKEN= "ваш бот токен"
+    - RAPID_API_KEY= "ваш rapid_api key"
+    - DB_NAME= "database/history.sqlite3"
 - Установить виртуальное окружение командой: python -m venv venv
 - Активировать виртуальное окружение командой: source venv/bin/activate
 - установить необходимые зависимости командой: pip install -r requirements.txt
@@ -34,11 +32,9 @@ DB_NAME= "database/history.sqlite3"
 - Создайте на своем компьютере папку проекта
 - Склонируйте этот репозиторий в папку проекта https://gitlab.skillbox.ru/ilia_petrachuk/PA_Python_DPO_bot/
 - Создайте файл .env и добавьте в него переменные окружения, следующего вида:
-
-BOT_TOKEN= "ваш бот токен"
-RAPID_API_KEY= "ваш rapid_api key"
-DB_NAME= "database/history.sqlite3"
-
+    - BOT_TOKEN= "ваш бот токен"
+    - RAPID_API_KEY= "ваш rapid_api key"
+    - DB_NAME= "database/history.sqlite3"
 - Активируйте виртуальное окружение `pipenv shell` - Установите все зависимости `pipenv install --ignore-Pipfile` 
 - Запустите бота командой `pipenv run main.py` из Терминала из папки с проектом
 Описание работы команд:
